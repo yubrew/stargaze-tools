@@ -15,7 +15,9 @@ module.exports = {
   // The number of tokens to mint
   numTokens: 0,
   // The code ID for sg721
-  contractCodeId: 0,
+  sg721CodeId: 40,
+  // The code ID for the minter contract
+  minterCodeId: 41,
   // The price (in STARS) for your NFTs
   unitPrice: 1,
   // The name of your collection

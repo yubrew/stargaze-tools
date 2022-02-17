@@ -1,34 +1,23 @@
-import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
-import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
+import { getSigningClient } from "./signingClient";
 import { calculateFee, GasPrice } from "@cosmjs/stargate";
 
 const config = require("../config");
 
-export async function instantiate() {
-  const gasPrice = GasPrice.fromString("0stars");
-  const wallet = await DirectSecp256k1HdWallet.fromMnemonic(
-    config["mnemonic"],
-    {
-      prefix: "stars",
-    }
-  );
-  const client = await SigningCosmWasmClient.connectWithSigner(
-    config["rpcEndpoint"],
-    wallet
-  );
-  const instantiateFee = calculateFee(500_000, gasPrice);
+export async function instantiateSg721() {
+  const client = await getSigningClient();
 
+  const gasPrice = GasPrice.fromString("0stars");
+  const instantiateFee = calculateFee(500_000, gasPrice);
   const collectionMsg = {
     name: config["name"],
     symbol: config["symbol"],
-    // TODO: this is the contract being instantiated, so we won't have a minter here right?
-    minter: config["minter"],
+    minter: config["creator"],
   };
   console.log(collectionMsg);
 
   const { contractAddress } = await client.instantiate(
     config["creator"],
-    config["contractCodeId"],
+    config["sg721CodeId"],
     collectionMsg,
     config["name"],
     instantiateFee

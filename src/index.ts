@@ -1,26 +1,47 @@
 #!/usr/bin/env node
-import yargs from "yargs";
-import { instantiate } from "./instantiate";
+import yargs, { Argv } from "yargs";
+import { createAccount } from "./account";
+import { instantiateSg721 } from "./sg721";
+import { instantiateMinter } from "./minter";
 import { pinataUpload } from "./pinata-upload";
 
 const argv = yargs(process.argv.slice(2))
   .scriptName("stars-cli")
   .usage("Usage: $0 <cmd> [options]")
   .command(
+    "create-account",
+    "Create a new Stargaze account and address",
+    function () {
+      createAccount();
+    }
+  )
+  .command(
     "instantiate",
     "instantiate a new NFT Minter contract",
-    function (args: any) {
-      instantiate().then(console.log);
+    function (args: Argv) {
+      instantiateSg721().then(console.log);
     }
   )
   // TODO init a new project
-  .command("init", "create a blank Stargaze NFT project", function (args: any) {
-    console.log("Coming soon...");
-  })
+  .command(
+    "init",
+    "create a blank Stargaze NFT project",
+    function (args: Argv) {
+      console.log("Coming soon...");
+    }
+  )
   // TODO start repl
-  .command("repl", "Launch CosmJS Repl", function (args: any) {
+  .command("repl", "Launch CosmJS Repl", function (args: Argv) {
     console.log(args);
   })
+  // create account
+  .command(
+    "create-account",
+    "create a new STARS account",
+    function (args: Argv) {
+      console.log("Coming soon...");
+    }
+  )
   .command(
     "mint-for",
     "Mint an NFT for an address",
@@ -44,7 +65,7 @@ const argv = yargs(process.argv.slice(2))
     "pinata-upload",
     "Upload project to IPFS via Pinata (requires API key)",
     () => {},
-    function (args: any) {
+    function (args: Argv) {
       console.log(args);
       pinataUpload().then(console.log);
     }
@@ -64,7 +85,7 @@ const argv = yargs(process.argv.slice(2))
         describe: "Path to CSV file of addresses to remove.",
       },
     },
-    function (args: any) {
+    function (args: Argv) {
       console.log(args);
     }
   )
