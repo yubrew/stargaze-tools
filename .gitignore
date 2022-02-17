@@ -41,3 +41,6 @@ coverage/
 
 # Config files
 config.js
+
+# Typescript
+build/

@@ -2,9 +2,9 @@ import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
 import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { calculateFee, GasPrice } from "@cosmjs/stargate";
 
-const config = require("./config");
+const config = require("../config");
 
-async function main() {
+export async function instantiate() {
   const gasPrice = GasPrice.fromString("0stars");
   const wallet = await DirectSecp256k1HdWallet.fromMnemonic(
     config["mnemonic"],
@@ -34,7 +34,6 @@ async function main() {
     instantiateFee
   );
   console.info(`Contract instantiated at: `, contractAddress);
-}
 
-await main();
-console.info("Done.");
+  return contractAddress;
+}

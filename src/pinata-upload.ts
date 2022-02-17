@@ -41,7 +41,7 @@ export async function pinataUpload() {
   });
 
   // Wait for all images to be uploaded
-  await Promise.all(imagePromises).then(async (images) => {
+  return await Promise.all(imagePromises).then(async (images) => {
     // Create temp upload folder for metadata
     const tmpFolder = fs.mkdtempSync(path.join(os.tmpdir(), "galaxy"));
 
@@ -72,5 +72,3 @@ export async function pinataUpload() {
     };
   });
 }
-
-pinataUpload();
