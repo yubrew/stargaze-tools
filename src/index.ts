@@ -16,25 +16,19 @@ const argv = yargs(process.argv.slice(2))
     }
   )
   .command(
-    "instantiate",
+    "instantiate-sg721",
     "instantiate a new NFT Minter contract",
     function (args: Argv) {
       instantiateSg721().then(console.log);
     }
   )
-  // TODO init a new project
   .command(
-    "init",
-    "create a blank Stargaze NFT project",
+    "instantiate-minter",
+    "instantiate a new NFT Minter contract",
     function (args: Argv) {
-      console.log("Coming soon...");
+      instantiateMinter().then(console.log);
     }
   )
-  // TODO start repl
-  .command("repl", "Launch CosmJS Repl", function (args: Argv) {
-    console.log(args);
-  })
-  // create account
   .command(
     "create-account",
     "create a new STARS account",
@@ -64,7 +58,6 @@ const argv = yargs(process.argv.slice(2))
   .command(
     "pinata-upload",
     "Upload project to IPFS via Pinata (requires API key)",
-    () => {},
     function (args: Argv) {
       console.log(args);
       pinataUpload().then(console.log);
@@ -82,10 +75,15 @@ const argv = yargs(process.argv.slice(2))
       toAdd: {
         type: "string",
         demandOption: true,
+        describe: "Path to CSV file of addresses to add.",
+      },
+      toRemove: {
+        type: "string",
+        demandOption: true,
         describe: "Path to CSV file of addresses to remove.",
       },
     },
-    function (args: Argv) {
+    function (args: any) {
       console.log(args);
     }
   )

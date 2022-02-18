@@ -2,15 +2,16 @@ import { Bech32 } from "@cosmjs/encoding";
 import { calculateFee, GasPrice } from "@cosmjs/stargate";
 import { getSigningClient } from "./signingClient";
 
-const config = require("./config");
+const config = require("../config");
 
 export async function instantiateMinter() {
   const client = await getSigningClient();
 
   const gasPrice = GasPrice.fromString("0stars");
   const instantiateFee = calculateFee(500_000, gasPrice);
+  // TODO add whitelist from config and other options
   const msg = {
-    base_token_uri: config["baseTokenUri"],
+    base_token_uri: config["baseTokenURI"],
     num_tokens: config["numTokens"],
     sg721_code_id: config["sg721CodeId"],
     sg721_instantiate_msg: {
@@ -27,15 +28,15 @@ export async function instantiateMinter() {
       },
     },
     unit_price: {
-      amount: config["unitPrice"] * 1000000,
-      denom: process.env.NEXT_PUBLIC_STAKING_DENOM,
+      amount: (config["unitPrice"] * 1000000).toString(),
+      denom: "ustars",
     },
   };
   console.log(msg);
 
   const { contractAddress } = await client.instantiate(
     config["creator"],
-    config["sg721CodeId"],
+    config["minterCodeId"],
     msg,
     config["name"],
     instantiateFee

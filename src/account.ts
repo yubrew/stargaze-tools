@@ -1,7 +1,7 @@
 import { encodeSecp256k1Pubkey, Secp256k1HdWallet } from "@cosmjs/amino";
 import { Bip39, Random } from "@cosmjs/crypto";
 
-export default async function createAccount() {
+export async function createAccount() {
   const mnemonic = Bip39.encode(Random.getBytes(16)).toString();
   const wallet = await Secp256k1HdWallet.fromMnemonic(mnemonic, {
     prefix: "stars",
