@@ -51,15 +51,15 @@ module.exports = {
   //// WHITELIST CONTRACT ////
   // A list of whitelisted addresses that will be able to purchase the sale early
   // Comment out if not using a whilelist
-  whitelist: ['stars1..', 'stars1...'],
-  // The date when the whitelist only purchasing period ends and everyone can buy
-  whitelistStartTime: '02 Mar 2022 22:00:00 GMT',
-  whitelistEndTime: '02 Mar 2022 22:00:00 GMT',
-  // The contract address for your whitelist contract
-  // Get this after running `yarn run whitelist`
-  whitelistContract: 'stars1...',
-  // The price (in STARS) for the whitelist (minimum 25 STARS)
-  whitelistPrice: 50,
+  //   whitelist: ['stars1..', 'stars1...'],
+  //   // The date when the whitelist only purchasing period ends and everyone can buy
+  //   whitelistStartTime: '02 Mar 2022 22:00:00 GMT',
+  //   whitelistEndTime: '02 Mar 2022 22:00:00 GMT',
+  //   // The contract address for your whitelist contract
+  //   // Get this after running `yarn run whitelist`
+  //   whitelistContract: 'stars1...',
+  //   // The price (in STARS) for the whitelist (minimum 25 STARS)
+  //   whitelistPrice: 50,
 
   //// API CONFIG ////
   // The RPC endpoint to query and send Stargaze transactions to
