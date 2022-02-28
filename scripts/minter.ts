@@ -68,7 +68,7 @@ async function init() {
             (new Date(config.startTime).getTime() * 1_000_000).toString(),
         };
 
-  const instantiateFee = calculateFee(950_000, gasPrice);
+  const instantiateFee = calculateFee(4_950_000, gasPrice);
 
   const tempMsg = {
     base_token_uri: config.baseTokenUri,
