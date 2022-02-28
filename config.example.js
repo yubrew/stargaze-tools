@@ -46,7 +46,7 @@ module.exports = {
   royaltyShare: '0.1',
   // The date when the sale goes live
   // If whitelist is enabled, only whitelisted addresses will be able to purchase
-  startTime: '02 Mar 2022 22:00:00 GMT',
+  startTime: '27 Feb 2022 22:00:00 GMT',
 
   //// WHITELIST CONTRACT ////
   // A list of whitelisted addresses that will be able to purchase the sale early
