@@ -6,6 +6,10 @@
 
 This is an example collection from images and metadata to getting it ready for upload.
 
+`contractUri https://terramoons.mypinata.cloud/ipfs/QmRrZMJmLbVxf5kAPfUY7BEqZuzm1sC5d94ZJaz9FTKoFx`
+`uploaded images as a directory: https://terramoons.mypinata.cloud/ipfs/QmPYqcz3p89SNzHnsdHt6JCbXdB7EceLckdVSQGZBqNZeX`
+`update json data to use ipfs image path: https://terramoons.mypinata.cloud/ipfs/QmRVjWPGuuQPSRfRCnQnzWr2rpuPbuc8irzRz13AmsCenv`
+
 # More documentation
 
 A more comprehensive guide is available at [Stargaze Docs](https://docs.stargaze.zone/guides/readme).
