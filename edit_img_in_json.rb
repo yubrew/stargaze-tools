@@ -12,7 +12,7 @@ require 'json'
 # open json file in ./metadata
 # edit image link
 # inspect metadata files and image links, then upload directory to pinata
-num_tokens = 15
+num_tokens = 1050
 file_path = "./metadata/"
 target_file_path = "./ipfs_ready_metadata/"
 (1..num_tokens).to_a.each do |i|
