@@ -47,6 +47,8 @@ module.exports = {
   // whitelistEndTime: '02 Mar 2022 22:00:00 GMT',
   // The price (in STARS) for the whitelist (minimum 25 STARS)
   // whitelistPrice: 50,
+  // The Per Address Limit during whitelist period this can be different than the main public limit
+  // whitelistPerAddressLimit: 1,
   // The contract address for your whitelist contract
   // Get this after running `yarn run whitelist`
   // whitelistContract: 'stars1...',
@@ -58,12 +60,6 @@ module.exports = {
   numTokens: 100,
   // The price (in STARS) for your NFTs (minimum 50 STARS)
   unitPrice: 100,
-  // The minter contract address
-  // Get this after running `yarn run minter`
-  minter: 'stars1...',
-  // SG721 contract address
-  // Get this after running `yarn run minter`
-  sg721: 'stars1...',
   // The address for royalites to go to (may be the same as `account`)
   // Comment out both below if not using royalites
   royaltyPaymentAddress: 'stars1...',
@@ -71,13 +67,19 @@ module.exports = {
   royaltyShare: '0.1',
   // The date when the sale goes live
   // If whitelist is enabled, only whitelisted addresses will be able to purchase
-  startTime: '27 Feb 2022 22:00:00 GMT',
+  startTime: '02 Mar 2022 22:00:00 GMT',
+  // The minter contract address
+  // Get this after running `yarn run minter`
+  minter: 'stars1...',
+  // SG721 contract address
+  // Get this after running `yarn run minter`
+  sg721: 'stars1...',
 
   //// CONTRACT CODE IDs ////
   // The code ID for sg721
-  sg721CodeId: 33,
+  sg721CodeId: 49,
   // The code ID for the minter contract
-  minterCodeId: 34,
+  minterCodeId: 50,
   // The code ID for the whitelist contract
-  whitelistCodeId: 35,
+  whitelistCodeId: 51,
 };

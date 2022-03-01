@@ -6,9 +6,95 @@
 
 This is an example collection from images and metadata to getting it ready for upload.
 
-`contractUri https://terramoons.mypinata.cloud/ipfs/QmRrZMJmLbVxf5kAPfUY7BEqZuzm1sC5d94ZJaz9FTKoFx`
-`uploaded images as a directory: https://terramoons.mypinata.cloud/ipfs/QmPYqcz3p89SNzHnsdHt6JCbXdB7EceLckdVSQGZBqNZeX`
-`update json data to use ipfs image path: https://terramoons.mypinata.cloud/ipfs/QmRVjWPGuuQPSRfRCnQnzWr2rpuPbuc8irzRz13AmsCenv`
+```sh
+git clone https://github.com/public-awesome/stargaze-tools
+cd stargaze-tools
+yarn install
+```
+
+## Create an account on testnet
+
+```sh
+yarn run account
+```
+
+This outputs an address you can use to instantiate your minter contract.
+
+## Get funds from faucet
+
+Ask for funds from the `#faucet` channel in [Discord Stargaze](https://discord.gg/stargaze).
+
+```
+$request [address]
+```
+
+## Configure project
+
+Edit `config.js` with your project configuration.
+
+## Initialize an NFT minting contract
+
+```sh
+yarn run minter
+```
+
+## Mint
+
+### Mint a specific NFT to an address
+
+```sh
+yarn run mint --for [token_id] [address]
+```
+
+`[address]` can be any Cosmos address. It'll be converted automatically into a Stargaze address.
+
+### Mint to an address
+
+```sh
+yarn run mint --to [address]
+```
+
+This mints the next available token ID to the given address.
+
+### Batch mint
+
+Mint `num` NFTs to an address.
+
+```sh
+yarn run mint --to [address] --batch [num]
+```
+
+Same as `mint --to` but mints the next [num] tokens sequentially to the given address.
+
+## Whitelist (optional)
+
+Instantiate a whitelist contract:
+
+```sh
+yarn run whitelist
+```
+
+The output of the above command should give you a whitelist contract address. Edit `config.js` and update the `whitelist` field with this value. Next, set this address in your minter contract with:
+
+```sh
+yarn run minter --whitelist [whitelist_address]
+```
+
+To add addresses to the whitelist, use:
+
+```sh
+yarn run whitelist --add [stars1..., stars2..., etc.]
+```
+
+## Query sg721
+
+You can run queries against an instantiated sg721 contract with:
+
+```sh
+yarn run query
+```
+
+For all possible queries, see the [query types](https://github.com/public-awesome/cw-nfts/blob/main/contracts/cw721-base/src/msg.rs#L76).
 
 # More documentation
 
